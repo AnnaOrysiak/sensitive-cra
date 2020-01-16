@@ -1,0 +1,47 @@
+.navigation {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-100%);
+  padding: 1rem;
+  background-color: beige;
+  transition: transform .5s ease;
+}
+
+.menu-button {
+  position: absolute;
+  top: 30px;
+  right: -50px;
+  transform: translateY(-50%);
+  transform-origin: center center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid maroon;
+  border-radius: 50%;
+}
+
+.menu-button__bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 2px;
+  background-color: maroon;
+}
+
+.menu-button__bar:nth-child(1) {
+  transform: translate(-50%, -400%);
+}
+
+.menu-button__bar:nth-child(3) {
+  transform: translate(-50%, 300%);
+}
+
+.navigation.active {
+  transform: translate(0);
+}
+
+.navigation.active .menu-button {
+  transform: translate(-150%, -50%);
+}
