@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Story from '../components/Story';
+import StoryListElement from '../components/StoryListElement';
+import Loader from '../components/Loader';
 import '../style/navigation.css';
 
 class Navigation extends Component {
@@ -11,15 +12,21 @@ class Navigation extends Component {
     this.setState(prevState => ({ active: !prevState.active }))
   }
 
+
+
   render() {
 
-    const { stories } = this.props;
+    const { stories, getStoryHandler, getNewsHandler } = this.props;
 
-    console.log(stories.length);
+    const goToTheStart = () => {
+      getNewsHandler();
+      this.navigationHandler();
+    };
+
     let storiesList = [];
 
     if (stories.length > 0) {
-      storiesList = stories.map(story => <Story key={story._id} storyTitle={story.title} />)
+      storiesList = stories.map(story => <StoryListElement key={story._id} storyTitle={story.title} chapterTitle={story.chapter} storyId={story._id} getStoryHandler={getStoryHandler} navigationHandler={this.navigationHandler} />)
     }
 
     return (
@@ -30,11 +37,14 @@ class Navigation extends Component {
           <span className="menu-button__bar"></span>
         </div>
         <div className="menu">
-          <span className="icon">start / </span>
-          <span className="icon">login</span>
-          <h3>Opowiadania</h3>
-          <ul className="list">
-            {storiesList}
+          <section className="icons">
+            <button onClick={goToTheStart}><span className="icon">start</span></button>
+            <button><span className="icon">login</span></button>
+          </section>
+
+          <h3 className="menu__header">Opowiadania</h3>
+          <ul className="menu__list">
+            {stories.length ? storiesList : <Loader />}
           </ul>
         </div>
       </nav >);

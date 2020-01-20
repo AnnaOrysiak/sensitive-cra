@@ -1,0 +1,11 @@
+.story {
+  text-align: justify;
+}
+
+.story__title {
+  padding: 2rem 0;
+}
+
+.story__content::first-letter {
+  font-size: 3rem;
+}

@@ -10,9 +10,38 @@ class App extends Component {
   state = {
     news: [],
     stories: [],
+    story: [],
+    storyContent: false,
+  }
+
+  getNewsHandler = () => {
+    this.setState({ storyContent: false })
+  }
+
+  getStoryHandler = (e) => {
+    console.log(e.target.value);
+
+    const id = e.target.value;
+
+    fetch(`${config.baseCorsUrl}story/${id}`)
+      .then(res => {
+        if (res.ok) {
+          return res.json()
+        } else {
+          throw new Error("error ", res.status)
+        }
+      })
+      .then(data => this.setState({
+        story: [data],
+        storyContent: true
+      }))
+      .catch(err => console.log(err));
+
   }
 
   componentDidMount() {
+
+    // use HOF
 
     fetch(`${config.baseCorsUrl}news`)
       .then(res => {
@@ -40,13 +69,13 @@ class App extends Component {
 
   render() {
 
-    const { news, stories } = this.state
+    const { news, stories, story, storyContent } = this.state
 
     return (
       <>
-        <Navigation stories={stories} />
+        <Navigation stories={stories} getStoryHandler={this.getStoryHandler} getNewsHandler={this.getNewsHandler} />
         <Header />
-        <Main content={news} />
+        <Main storyContent={storyContent} content={storyContent ? story : news} />
         <Footer />
       </>
     );

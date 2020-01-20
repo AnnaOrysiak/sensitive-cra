@@ -4,8 +4,9 @@
   height: 100vh;
   transform: translate(-100%);
   padding: 1rem;
-  background-color: beige;
+  background-color: #111;
   transition: transform .5s ease;
+  z-index: 10;
 }
 
 .menu-button {
@@ -16,7 +17,7 @@
   transform-origin: center center;
   width: 40px;
   height: 40px;
-  border: 2px solid maroon;
+  border: 2px solid orange;
   border-radius: 50%;
 }
 
@@ -25,17 +26,35 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
-  height: 2px;
-  background-color: maroon;
+  width: 66%;
+  height: 3px;
+  border-radius: 30px;
+  background-color: orange;
+  font-size: .6rem;
+  text-align: center;
+  font-weight: bold;
+  line-height: 0;
+  transform-origin: center center;
+  transition: transform .5s linear, border-radius .5s linear;
 }
 
 .menu-button__bar:nth-child(1) {
-  transform: translate(-50%, -400%);
+  transform: translate(-50%, -300%);
+}
+
+.menu-button__bar:nth-child(2) {
+  background-color: transparent;
+}
+
+.menu-button__bar:nth-child(2)::before {
+  display: block;
+  width: 100%;
+  content: "open";
+  transition: transform .4s linear;
 }
 
 .menu-button__bar:nth-child(3) {
-  transform: translate(-50%, 300%);
+  transform: translate(-50%, 200%);
 }
 
 .navigation.active {
@@ -44,4 +63,59 @@
 
 .navigation.active .menu-button {
   transform: translate(-150%, -50%);
+}
+
+.navigation.active .menu-button__bar:nth-child(1) {
+  transform: translate(-50%, 200%);
+}
+
+.navigation.active .menu-button__bar:nth-child(2)::before {
+  content: "close";
+}
+
+.navigation.active .menu-button__bar:nth-child(3) {
+  transform: translate(-50%, -300%);
+}
+
+.icons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.icon {
+  display: block;
+  width: 4rem;
+  line-height: 4rem;
+  border: 2px solid maroon;
+  text-align: center;
+}
+
+.menu__header {
+  display: block;
+  padding: .5rem;
+  text-transform: uppercase;
+}
+
+.menu__list {
+  list-style: none;
+  padding: 1rem;
+}
+
+.menu__item {
+  padding: .5rem 1rem;
+  border: none;
+  transition: color .3s linear;
+}
+
+.menu__item:hover {
+  color: maroon;
+}
+
+
+@media screen and (min-width:1024px) {
+  .navigation {
+    max-width: 400px;
+  }
 }

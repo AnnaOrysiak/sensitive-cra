@@ -1,5 +1,9 @@
-main {
+.mainContainer {
+  position: relative;
   padding: 1rem;
+  min-width: 100vw;
+  max-width: 100vw;
+  min-height: 50vh;
 }
 
 .articleNews {
@@ -7,11 +11,20 @@ main {
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  margin: 1rem 0;
+  margin: 1rem 0 2rem;
   border-bottom: 1px solid brown;
 }
 
 .articleNews__description {
   flex-basis: 100%;
   padding: 1rem 0;
+  text-align: justify;
+}
+
+@media screen and (min-width:1024px) {
+  .mainContainer {
+    margin: 0 auto;
+    min-width: 700px;
+    max-width: 1024px;
+  }
 }
