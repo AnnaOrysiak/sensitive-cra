@@ -3,9 +3,9 @@ import '../style/header.css'
 
 const Header = () => {
   return (
-    <header className="banner">
-
-    </header>
+    <>
+      <div className="header"></div>
+    </>
   );
 }
 

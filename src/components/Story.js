@@ -3,15 +3,12 @@ import parse from 'html-react-parser';
 import '../style/story.css';
 
 const Story = (props) => {
-
-  console.log(props);
-
-  const { type, title, chapter, content, authors } = props.story;
+  const { type, title, chapter_title, content, authors } = props.story;
 
   return (
     <article className="story">
-      <small>{title} / {chapter} </small>
-      <h3 className="story__title">{chapter}</h3>
+      <small>{type === "story" ? title + ' / ' + chapter_title : `${title} (${type})`}</small>
+      <h3 className="story__title">{type === "story" ? chapter_title : title}</h3>
       <div className="story__content">{parse(content)}</div>
       <p className="story__authors">{authors}</p>
 

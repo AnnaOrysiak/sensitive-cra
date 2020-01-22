@@ -4,9 +4,7 @@ import '../style/footer.css'
 const Footer = () => {
   return (
     <>
-      <footer className="footer">
-        <p>Sensitive</p>
-      </footer>
+      <p>Sensitive</p>
     </>
   );
 }

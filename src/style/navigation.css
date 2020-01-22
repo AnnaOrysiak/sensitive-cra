@@ -1,24 +1,18 @@
 .navigation {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  transform: translate(-100%);
-  padding: 1rem;
-  background-color: #111;
-  transition: transform .5s ease;
   z-index: 10;
 }
 
 .menu-button {
-  position: absolute;
+  position: fixed;
   top: 30px;
-  right: -50px;
+  left: 10px;
   transform: translateY(-50%);
   transform-origin: center center;
   width: 40px;
   height: 40px;
   border: 2px solid orange;
   border-radius: 50%;
+  z-index: 10;
 }
 
 .menu-button__bar {
@@ -57,24 +51,31 @@
   transform: translate(-50%, 200%);
 }
 
-.navigation.active {
-  transform: translate(0);
-}
-
-.navigation.active .menu-button {
-  transform: translate(-150%, -50%);
-}
-
-.navigation.active .menu-button__bar:nth-child(1) {
+.menu-button.active .menu-button__bar:nth-child(1) {
   transform: translate(-50%, 200%);
 }
 
-.navigation.active .menu-button__bar:nth-child(2)::before {
+.menu-button.active .menu-button__bar:nth-child(2)::before {
   content: "close";
 }
 
-.navigation.active .menu-button__bar:nth-child(3) {
+.menu-button.active .menu-button__bar:nth-child(3) {
   transform: translate(-50%, -300%);
+}
+
+.menu {
+  position: absolute;
+  background-color: #111;
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  transform: translateX(-100%);
+  transition: transform .3s linear;
+  z-index: 9;
+}
+
+.menu.active {
+  transform: translate(0);
 }
 
 .icons {
@@ -89,6 +90,7 @@
   width: 4rem;
   line-height: 4rem;
   border: 2px solid maroon;
+  color: orange;
   text-align: center;
 }
 
@@ -115,7 +117,8 @@
 
 
 @media screen and (min-width:1024px) {
-  .navigation {
+  .menu {
+    min-width: 400px;
     max-width: 400px;
   }
 }

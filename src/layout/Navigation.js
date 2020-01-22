@@ -1,53 +1,65 @@
 import React, { Component } from 'react';
-import StoryListElement from '../components/StoryListElement';
+import { NavLink } from 'react-router-dom';
+// import StoryListElement from '../components/StoryListElement';
 import Loader from '../components/Loader';
+import config from '../utils/config';
 import '../style/navigation.css';
 
 class Navigation extends Component {
   state = {
     active: false,
+    stories: [],
   }
 
   navigationHandler = () => {
     this.setState(prevState => ({ active: !prevState.active }))
   }
 
+  getStoriesList = () => {
+    const storiesList = this.state.stories.map((story) =>
+      <li key={story._id}>
+        <NavLink to={`/story/${story._id}`} id={story._id} onClick={this.navigationHandler}>{story.chapter_title} {story.title} </NavLink>
+      </li>
+    )
+
+    return storiesList;
+  }
+
+  componentDidMount() {
+    fetch(`${config.baseCorsUrl}stories`)
+      .then(res => {
+        if (res.ok) {
+          return res.json()
+        } else {
+          throw new Error("error ", res.status)
+        }
+      })
+      .then(data => this.setState({ stories: data }))
+      .catch(err => console.log(err));
+  }
 
 
   render() {
 
-    const { stories, getStoryHandler, getNewsHandler } = this.props;
-
-    const goToTheStart = () => {
-      getNewsHandler();
-      this.navigationHandler();
-    };
-
-    let storiesList = [];
-
-    if (stories.length > 0) {
-      storiesList = stories.map(story => <StoryListElement key={story._id} storyTitle={story.title} chapterTitle={story.chapter} storyId={story._id} getStoryHandler={getStoryHandler} navigationHandler={this.navigationHandler} />)
-    }
-
     return (
-      <nav className={this.state.active ? 'navigation active' : 'navigation'} >
-        <div className="btn menu-button" onClick={this.navigationHandler}>
+      <>
+        <div className={this.state.active ? 'btn menu-button active' : 'btn menu-button'} onClick={this.navigationHandler}>
           <span className="menu-button__bar"></span>
           <span className="menu-button__bar"></span>
           <span className="menu-button__bar"></span>
         </div>
-        <div className="menu">
+        <div className={this.state.active ? 'menu active' : 'menu'}>
           <section className="icons">
-            <button onClick={goToTheStart}><span className="icon">start</span></button>
-            <button><span className="icon">login</span></button>
+            <NavLink to='/' onClick={this.navigationHandler} exact><span className="icon">start</span></NavLink>
+            <NavLink to='/login' onClick={this.navigationHandler}><span className="icon">login</span></NavLink>
           </section>
 
           <h3 className="menu__header">Opowiadania</h3>
           <ul className="menu__list">
-            {stories.length ? storiesList : <Loader />}
+            {this.state.stories.length ? this.getStoriesList() : <Loader />}
           </ul>
         </div>
-      </nav >);
+      </>);
   }
 }
 

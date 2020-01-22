@@ -1,16 +1,11 @@
 import React from 'react';
 
 const StoryListElement = (props) => {
-  const { storyId, chapterTitle, storyTitle, getStoryHandler, navigationHandler } = props;
-
-  const clickHandler = (e) => {
-    getStoryHandler(e)
-    setTimeout(navigationHandler, 500);
-  }
+  const { storyId, chapterTitle, storyTitle, navigationHandler } = props;
 
   return (
     <li>
-      <button className="menu__item" value={storyId} onClick={clickHandler}>
+      <button className="menu__item" value={storyId} onClick={navigationHandler}>
         {chapterTitle} ({storyTitle})
       </button>
     </li>
