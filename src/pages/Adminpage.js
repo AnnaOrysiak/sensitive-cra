@@ -15,7 +15,7 @@ class Adminpage extends Component {
     return (
       <>
         <Route render={() => (
-          permission ? (<h3>Panel admina - dzień dobry</h3>) : (<Redirect to="/login/" permission={this.checkPermission} />)
+          permission ? (<h3>Panel admina - dzień dobry</h3>) : (<Redirect to="/sensitive-cra/login/" permission={this.checkPermission} />)
         )} />
       </>
     );
