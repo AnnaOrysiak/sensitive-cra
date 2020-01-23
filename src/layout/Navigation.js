@@ -18,7 +18,7 @@ class Navigation extends Component {
   getStoriesList = () => {
     const storiesList = this.state.stories.map((story) =>
       <li key={story._id}>
-        <NavLink to={`/story/${story._id}`} id={story._id} onClick={this.navigationHandler}>{story.chapter_title} {story.title} </NavLink>
+        <NavLink to={`/sensitive-cra/story/${story._id}`} id={story._id} onClick={this.navigationHandler}>{story.chapter_title} {story.title} </NavLink>
       </li>
     )
 
@@ -50,8 +50,8 @@ class Navigation extends Component {
         </div>
         <div className={this.state.active ? 'menu active' : 'menu'}>
           <section className="icons">
-            <NavLink to='/' onClick={this.navigationHandler} exact><span className="icon">start</span></NavLink>
-            <NavLink to='/login' onClick={this.navigationHandler}><span className="icon">login</span></NavLink>
+            <NavLink to='/sensitive-cra/' onClick={this.navigationHandler} exact><span className="icon">start</span></NavLink>
+            <NavLink to='/sensitive-cra/admin' onClick={this.navigationHandler}><span className="icon">login</span></NavLink>
           </section>
 
           <h3 className="menu__header">Opowiadania</h3>
