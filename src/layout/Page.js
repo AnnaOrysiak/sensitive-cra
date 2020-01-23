@@ -6,15 +6,17 @@ import Adminpage from '../pages/Adminpage'
 import Loginpage from '../pages/Loginpage';
 import Errorpage from '../pages/Errorpage';
 
+const originalPath = window.location.pathname;
+
 const Page = () => {
 
   return (
     <>
       <Switch>
-        <Route path="/" exact component={Homepage} />
-        <Route path="/story/:id" component={Storypage} />
-        <Route path="/admin" component={Adminpage} />
-        <Route path="/login" component={Loginpage} />
+        <Route path={`${originalPath}`} exact component={Homepage} />
+        <Route path={`${originalPath}story/:id`} component={Storypage} />
+        <Route path={`${originalPath}admin`} component={Adminpage} />
+        <Route path={`${originalPath}login`} component={Loginpage} />
         <Route component={Errorpage} />
       </Switch>
     </>
