@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 // import StoryListElement from '../components/StoryListElement';
 import Loader from '../components/Loader';
+import StoryList from '../components/StoryList';
 import config from '../utils/config';
 import '../style/navigation.css';
 
@@ -14,17 +15,6 @@ class Navigation extends Component {
   navigationHandler = () => {
     this.setState(prevState => ({ active: !prevState.active }))
   }
-
-  getStoriesList = () => {
-    const storiesList = this.state.stories.map((story) =>
-      <li key={story._id}>
-        <NavLink to={`/sensitive-cra/story/${story._id}`} id={story._id} onClick={this.navigationHandler}>{story.chapter_title} {story.title} </NavLink>
-      </li>
-    )
-
-    return storiesList;
-  }
-
   componentDidMount() {
     fetch(`${config.baseCorsUrl}stories`)
       .then(res => {
@@ -40,7 +30,6 @@ class Navigation extends Component {
 
 
   render() {
-
     return (
       <>
         <div className={this.state.active ? 'btn menu-button active' : 'btn menu-button'} onClick={this.navigationHandler}>
@@ -55,9 +44,7 @@ class Navigation extends Component {
           </section>
 
           <h3 className="menu__header">Opowiadania</h3>
-          <ul className="menu__list">
-            {this.state.stories.length ? this.getStoriesList() : <Loader />}
-          </ul>
+          {this.state.stories.length ? <StoryList stories={this.state.stories} navigationHandler={this.navigationHandler} /> : <Loader />}
         </div>
       </>);
   }

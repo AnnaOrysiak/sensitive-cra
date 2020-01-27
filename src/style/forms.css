@@ -53,6 +53,7 @@
 
 .form__alert {
   display: inline-block;
+  margin: 0 auto;
   color: red;
   font-family: Arial, Helvetica, sans-serif;
   padding: .2rem 0;
@@ -62,8 +63,13 @@
 
 .form__confirmation {
   color: green;
+  text-align: center;
 }
 
 .invalidate {
   background-color: rgba(255, 0, 0, .1);
+}
+
+.otherInformation {
+  text-align: center;
 }

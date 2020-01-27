@@ -100,21 +100,38 @@
   text-transform: uppercase;
 }
 
-.menu__list {
-  list-style: none;
-  padding: 1rem;
+.storyBox {}
+
+.storyBox--long {
+  margin-bottom: 1rem;
 }
 
-.menu__item {
-  padding: .5rem 1rem;
+.storyBox__list {
+  list-style: none;
+  padding: 0 .5rem;
+}
+
+.storyBox__item {
+  padding: .1rem 1rem;
   border: none;
+  border-left: 2px solid orange;
   transition: color .3s linear;
 }
 
-.menu__item:hover {
+.storyBox__item:hover {
   color: maroon;
 }
 
+.storyBox__item--short {
+  transform: translateX(-.5rem);
+}
+
+.storyBox__title {
+  position: relative;
+  padding: .5rem;
+  border-left: none;
+  color: goldenrod;
+}
 
 @media screen and (min-width:1024px) {
   .menu {
