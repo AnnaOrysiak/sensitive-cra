@@ -1,0 +1,42 @@
+.adminPanel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  /* background-color: #fff; */
+
+}
+
+.adminName {
+  display: block;
+  width: 100%;
+  margin: 0 0 3rem;
+}
+
+.adminNews,
+.adminStories {
+  position: relative;
+  background-color: rgba(255, 255, 255, .2);
+  width: 45%;
+  min-height: 10rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.newsListItem {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid maroon;
+  padding: 1rem 0;
+}
+
+.newsListItem__title {
+  display: inline;
+  color: black;
+  min-width: 10rem;
+  max-width: 10rem;
+}
