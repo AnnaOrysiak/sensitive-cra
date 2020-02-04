@@ -2,3 +2,7 @@
   min-height: 5rem;
   background-color: brown;
 }
+
+.light-mode .header {
+  background-color: #3f72af;
+}

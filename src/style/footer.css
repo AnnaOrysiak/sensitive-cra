@@ -5,3 +5,7 @@
   text-align: center;
   letter-spacing: 2px;
 }
+
+.light-mode .footer {
+  background-color: #3f72af;
+}

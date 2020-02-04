@@ -1,0 +1,29 @@
+.banner {
+  grid-area: header;
+}
+
+.navigation {
+  grid-area: nav;
+}
+
+.mainContainer {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.appContainer {
+  display: grid;
+  grid-template-areas: "nav header header header"
+    "nav . main ."
+    "nav  footer footer footer";
+  grid-template-columns: 0 auto auto auto;
+  grid-template-rows: auto;
+}
+
+.light-mode {
+  color: #112d4e;
+  background-color: #dbe2ef;
+}

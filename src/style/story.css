@@ -18,6 +18,10 @@
   border: 2px solid brown;
 }
 
+.light-mode .story__authors {
+  border-color: #3f72af;
+}
+
 .story__author {
   display: inline-block;
   margin: 0 auto;

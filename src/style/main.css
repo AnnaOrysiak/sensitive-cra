@@ -15,6 +15,10 @@
   border-bottom: 1px solid brown;
 }
 
+.light-mode .articleNews {
+  border-bottom-color: #3f72af;
+}
+
 .articleNews__description {
   flex-basis: 100%;
   padding: 1rem 0;
