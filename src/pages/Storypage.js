@@ -10,7 +10,7 @@ class Storypage extends Component {
 
   fetchNewStory = () => {
     const id = this.props.match.params.id;
-    storyApi.getStoryBiId(id)
+    storyApi.getStoryById(id)
       .then(data => this.setState({ story: data }))
   }
 
