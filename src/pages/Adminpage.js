@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-
-const permission = false;
+import AdminPanel from './admin/AdminPanel';
 
 class Adminpage extends Component {
-  state = {}
+  state = {
+    user: "Admin",
+    stories: [],
+  }
 
   checkPermission = () => {
     console.log("checking permission");
-
+    return localStorage.getItem('state');
   }
 
   render() {
     return (
       <>
         <Route render={() => (
-          permission ? (<h3>Panel admina - dzień dobry</h3>) : (<Redirect to="/sensitive-cra/login/" permission={this.checkPermission} />)
+          this.checkPermission() ? (
+            <AdminPanel user={this.state.user} />
+          ) : (<Redirect to="/sensitive-cra/login/" permission={this.checkPermission} />)
         )} />
       </>
     );

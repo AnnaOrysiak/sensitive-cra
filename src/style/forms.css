@@ -43,6 +43,11 @@
   transform: translateY(-120%);
 }
 
+textarea {
+  background-color: transparent;
+  color: burlywood;
+}
+
 .form__button {
   margin: 1rem auto;
   border: 2px solid orange;

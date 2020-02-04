@@ -48,7 +48,7 @@ const StoryList = (props) => {
 
   shortStories.forEach((item, id) => {
     storiesList.push(
-      <li className="storyBox">
+      <li className="storyBox" key={item + id}>
         <h3>
           {filterTitle(item, stories)}
         </h3>

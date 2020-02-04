@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Story from '../components/Story';
 import Loader from '../components/Loader';
-import config from '../utils/config';
+import storyApi from '../api/storyApi';
 
 class Storypage extends Component {
   state = {
@@ -10,16 +10,8 @@ class Storypage extends Component {
 
   fetchNewStory = () => {
     const id = this.props.match.params.id;
-    fetch(`${config.baseCorsUrl}story/${id}`)
-      .then(res => {
-        if (res.ok) {
-          return res.json()
-        } else {
-          throw new Error("error ", res.status)
-        }
-      })
+    storyApi.getStoryBiId(id)
       .then(data => this.setState({ story: data }))
-      .catch(err => console.log(err));
   }
 
   componentDidMount() {

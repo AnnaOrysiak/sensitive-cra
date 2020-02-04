@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import News from '../components/News';
 import Loader from '../components/Loader';
-import config from '../utils/config';
+import newsApi from '../api/newsApi';
 import '../style/main.css';
 
 class Homepage extends Component {
@@ -15,16 +15,8 @@ class Homepage extends Component {
   }
 
   componentDidMount() {
-    fetch(`${config.baseCorsUrl}news`)
-      .then(res => {
-        if (res.ok) {
-          return res.json()
-        } else {
-          throw new Error("error ", res.status)
-        }
-      })
+    newsApi.getAllNews()
       .then(data => this.setState({ news: data }))
-      .catch(err => console.log(err));
   }
 
   render() {

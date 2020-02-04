@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Loader from '../components/Loader';
-import config from '../utils/config';
+import config from '../api/config';
 import '../style/forms.css';
 
 class Loginpage extends Component {
@@ -43,13 +43,15 @@ class Loginpage extends Component {
         .then(([data]) => {
           if (data) {
             this.setState({
-              authorisation: data.rank,
               message: "Logowanie poprawne",
               loading: false,
               alert: false
             })
-            console.log(data)
-            this.props.history.push("/admin")
+            localStorage.setItem('state', 'login');
+            this.props.history.push({
+              pathname: '/sensitive-cra/admin',
+              user: this.state.login,
+            })
           } else {
             this.setState({
               message: "Błędny login lub hasło",

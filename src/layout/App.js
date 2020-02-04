@@ -5,7 +5,6 @@ import Navigation from './Navigation';
 import Page from './Page';
 import Footer from './Footer';
 
-
 class App extends Component {
   render() {
 

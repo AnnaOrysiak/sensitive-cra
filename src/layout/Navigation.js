@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-// import StoryListElement from '../components/StoryListElement';
 import Loader from '../components/Loader';
 import StoryList from '../components/StoryList';
-import config from '../utils/config';
+import storyApi from '../api/storyApi';
 import '../style/navigation.css';
 
 class Navigation extends Component {
@@ -15,17 +14,14 @@ class Navigation extends Component {
   navigationHandler = () => {
     this.setState(prevState => ({ active: !prevState.active }))
   }
+
+  checkPermission = () => {
+    return localStorage.getItem('state')
+  }
+
   componentDidMount() {
-    fetch(`${config.baseCorsUrl}stories`)
-      .then(res => {
-        if (res.ok) {
-          return res.json()
-        } else {
-          throw new Error("error ", res.status)
-        }
-      })
+    storyApi.getAllStories()
       .then(data => this.setState({ stories: data }))
-      .catch(err => console.log(err));
   }
 
 
@@ -39,8 +35,12 @@ class Navigation extends Component {
         </div>
         <div className={this.state.active ? 'menu active' : 'menu'}>
           <section className="icons">
-            <NavLink to='/sensitive-cra/' onClick={this.navigationHandler} exact><span className="icon">start</span></NavLink>
-            <NavLink to='/sensitive-cra/admin' onClick={this.navigationHandler}><span className="icon">login</span></NavLink>
+            <NavLink to='/sensitive-cra/' onClick={this.navigationHandler} exact><span className="icon">Start</span></NavLink>
+            {
+              this.checkPermission() ?
+                <NavLink to='/sensitive-cra/logout' onClick={this.navigationHandler}><span className="icon">Wyloguj</span></NavLink> :
+                <NavLink to='/sensitive-cra/admin' onClick={this.navigationHandler}><span className="icon">Zaloguj</span></NavLink>
+            }
           </section>
 
           <h3 className="menu__header">Opowiadania</h3>
