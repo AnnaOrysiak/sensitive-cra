@@ -13,7 +13,7 @@ class NewsList extends Component {
   }
 
   generateNews = () => {
-    return this.state.news.map(item => <News key={item.date} title={item.title} date={item.date} id={item.id} />)
+    return this.state.news.map(item => <News key={item.date} title={item.title} date={item.date} id={item._id} />)
   }
 
   render() {

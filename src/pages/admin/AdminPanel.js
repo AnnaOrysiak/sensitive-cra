@@ -18,7 +18,7 @@ class AdminPanel extends Component {
       <>
         <div className="adminPanel">
           <h3 className="adminName">{this.state.user}</h3>
-          <StoriesList />
+          <StoriesList author={this.state.user} />
           <NewsList />
         </div>
       </>

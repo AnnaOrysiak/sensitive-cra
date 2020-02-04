@@ -1,7 +1,7 @@
 import config from '../api/config';
 
 // url changed after login
-// const urlAuth = localStorage.getItem('state') ? config.adminCorsUrl : config.baseCorsUrl;
+const urlAuth = localStorage.getItem('state') ? config.adminCorsUrl : config.baseCorsUrl;
 
 class StoryApi {
 
@@ -17,7 +17,7 @@ class StoryApi {
       .catch(err => err)
   }
 
-  static getStoryBiId(id = '') {
+  static getStoryById(id = '') {
     return fetch(`${config.baseCorsUrl}story/${id}`)
       .then(res => {
         if (res.ok) {
@@ -29,8 +29,8 @@ class StoryApi {
       .catch(err => err)
   }
 
-  static getStoryBiAuthor(author = '') {
-    return fetch(`${config.baseCorsUrl}story/${author}`)
+  static getStoriesByAuthor(author = '') {
+    return fetch(`${urlAuth}stories/${author}`)
       .then(res => {
         if (res.ok) {
           return res.json()
