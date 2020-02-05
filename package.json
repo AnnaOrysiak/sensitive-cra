@@ -1,6 +1,7 @@
 {
   "homepage": "https://annaorysiak.github.io/sensitive-cra",
   "name": "sensitive-cra",
+  "proxy": "https://sensitive-express.herokuapp.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

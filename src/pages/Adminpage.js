@@ -4,12 +4,10 @@ import AdminPanel from './admin/AdminPanel';
 
 class Adminpage extends Component {
   state = {
-    user: "Admin",
-    stories: [],
+    user: "Admin"
   }
 
   checkPermission = () => {
-    console.log("checking permission");
     return localStorage.getItem('state');
   }
 
@@ -17,9 +15,9 @@ class Adminpage extends Component {
     return (
       <>
         <Route render={() => (
-          this.checkPermission() ? (
-            <AdminPanel user={this.state.user} />
-          ) : (<Redirect to="/sensitive-cra/login/" permission={this.checkPermission} />)
+          this.checkPermission() ?
+            (<AdminPanel user={this.state.user} />) :
+            (<Redirect to="/sensitive-cra/login/" permission={this.checkPermission} />)
         )} />
       </>
     );

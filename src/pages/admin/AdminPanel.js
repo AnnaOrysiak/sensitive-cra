@@ -6,11 +6,6 @@ import './style/adminpanel.css';
 class AdminPanel extends Component {
   state = {
     user: this.props.user,
-    stories: [],
-  }
-
-  componentDidMount() {
-
   }
 
   render() {

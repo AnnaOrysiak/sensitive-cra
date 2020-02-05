@@ -3,11 +3,10 @@ import newsApi from '../../../api/newsApi';
 
 function handleDeleteNews(e) {
   e.preventDefault();
-  console.log(e.target.value);
-
   newsApi.deleteNewsById(e.target.value)
     .then(data => console.log(data))
 }
+
 
 const News = ({ title, date, id }) => {
   const utfDate = new Date(date);

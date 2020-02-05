@@ -6,7 +6,7 @@ const urlAuth = localStorage.getItem('state') ? config.adminCorsUrl : config.bas
 class NewsApi {
 
   static getAllNews() {
-    return fetch(`${config.baseCorsUrl}news`)
+    return fetch(`${urlAuth}news`)
       .then(res => {
         if (res.ok) {
           return res.json()
@@ -18,17 +18,8 @@ class NewsApi {
   }
 
   static deleteNewsById(id) {
-    console.log(`${urlAuth}news/delete/${id}`);
-    return fetch(`${urlAuth}news/delete/${id}`, {
-      method: "post",
-      credentials: "include",
-      headers: {
-        "Content-Type": "text/plain"
-      },
-      // body: id,
-    })
+    return fetch(`${urlAuth}news/delete/${id}`)
       .then(res => {
-        console.log(res.headers);
         if (res.ok) {
           return res.json()
         } else {
