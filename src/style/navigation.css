@@ -1,5 +1,6 @@
 .navigation {
   z-index: 10;
+  background-color: black;
 }
 
 .menu-button {
@@ -13,12 +14,13 @@
   border: 2px solid orange;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, .5);
+  cursor: pointer;
   z-index: 10;
 }
 
 .light-mode .menu-button {
   border: 2px solid #3f72af;
-  background-color: rgba(255, 255, 255, .5);
+  background-color: rgba(255, 255, 255, .7);
 }
 
 .menu-button__bar {
@@ -54,6 +56,7 @@
   display: block;
   width: 100%;
   content: "open";
+  transform: translateY(.05rem);
 }
 
 .menu-button__bar:nth-child(3) {
@@ -119,15 +122,14 @@
   text-transform: uppercase;
 }
 
-.storyBox {}
-
 .storyBox--long {
   margin-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
 .storyBox__list {
   list-style: none;
-  padding: 0 .5rem;
+  padding: 0 1rem;
 }
 
 .storyBox__item {
@@ -176,10 +178,6 @@
 
 .light-mode .storyBox__item:hover::before {
   background-color: #112d4e;
-}
-
-.storyBox__item--short {
-  transform: translateX(-.5rem);
 }
 
 .storyBox__item--short::before {

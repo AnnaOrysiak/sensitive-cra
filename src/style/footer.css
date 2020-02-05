@@ -1,4 +1,5 @@
 .footer {
+  min-height: 10vh;
   padding: 2rem;
   background-color: brown;
   color: white;

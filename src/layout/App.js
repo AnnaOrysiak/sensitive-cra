@@ -19,7 +19,9 @@ class App extends Component {
 
     return (
       <Router>
-        <div className={this.state.lightMode ? 'appContainer light-mode' : 'appContainer'}>
+        <div className={this.state.lightMode ?
+          'appContainer light-mode' :
+          'appContainer'}>
           <nav className='navigation'>
             {<Navigation changeColor={this.handleColorMode} />}
           </nav>

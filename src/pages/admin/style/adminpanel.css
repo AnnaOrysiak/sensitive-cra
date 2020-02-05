@@ -19,7 +19,7 @@
   position: relative;
   background-color: rgba(255, 255, 255, .2);
   min-height: 10rem;
-  width: 30%;
+  width: 35%;
   padding: 1rem;
   margin-bottom: 2rem;
 }
@@ -55,6 +55,10 @@
 
 .newsListItem:hover::before {
   opacity: 1;
+}
+
+.light-mode .newsListItem::before {
+  background: rgba(0, 100, 200, .3);
 }
 
 .newsListItem__title {
@@ -93,4 +97,14 @@
 
 .small {
   font-size: .8rem;
+}
+
+.light-mode .newsListItem,
+.light-mode .storyListItem {
+  border-bottom-color: #3f72af;
+}
+
+.light-mode .listBtn {
+  background-color: #3f72af;
+  color: white;
 }

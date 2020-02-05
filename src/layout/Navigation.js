@@ -28,23 +28,45 @@ class Navigation extends Component {
   render() {
     return (
       <>
-        <div className={this.state.active ? 'btn menu-button active' : 'btn menu-button'} onClick={this.navigationHandler}>
+        <div
+          className={this.state.active ? 'btn menu-button active' : 'btn menu-button'}
+          onClick={this.navigationHandler}>
           <span className="menu-button__bar"></span>
           <span className="menu-button__bar"></span>
           <span className="menu-button__bar"></span>
         </div>
+
         <div className={this.state.active ? 'menu active' : 'menu'}>
           <section className="icons">
-            <NavLink to='/sensitive-cra/' onClick={this.navigationHandler} exact><span className="icon">Start</span></NavLink>
+            <NavLink
+              to='/sensitive-cra/'
+              onClick={this.navigationHandler}
+              exact>
+              <span className="icon">Start</span>
+            </NavLink>
             {
               this.checkPermission() ?
-                <NavLink to='/sensitive-cra/logout' onClick={this.navigationHandler}><span className="icon">Wyloguj</span></NavLink> :
-                <NavLink to='/sensitive-cra/admin' onClick={this.navigationHandler}><span className="icon">Zaloguj</span></NavLink>
+                <NavLink
+                  to='/sensitive-cra/logout'
+                  onClick={this.navigationHandler}>
+                  <span className="icon">Wyloguj</span>
+                </NavLink> :
+                <NavLink
+                  to='/sensitive-cra/admin'
+                  onClick={this.navigationHandler}>
+                  <span className="icon">Zaloguj</span>
+                </NavLink>
             }
+
+            <button className='btn' onClick={this.props.changeColor}>słoneczko</button>
           </section>
 
           <h3 className="menu__header">Opowiadania</h3>
-          {this.state.stories.length ? <StoryList stories={this.state.stories} navigationHandler={this.navigationHandler} /> : <Loader />}
+          {this.state.stories.length ?
+            <StoryList
+              stories={this.state.stories}
+              navigationHandler={this.navigationHandler} />
+            : <Loader />}
         </div>
       </>);
   }
