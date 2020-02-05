@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import newsApi from '../../../api/newsApi';
 
 function handleDeleteNews(e) {
@@ -17,8 +18,15 @@ const News = ({ title, date, id }) => {
         <h4>{title}</h4>
         <p className='small'>{utfDate.toLocaleDateString()}</p>
       </div>
-      <button className='listBtn'>Edytuj</button>
-      <button className='listBtn' value={id} onClick={handleDeleteNews}>x</button>
+      <button className='listBtn'>
+        <FontAwesomeIcon icon="edit" />
+      </button>
+      <button
+        className='listBtn'
+        value={id}
+        onClick={handleDeleteNews}>
+        <FontAwesomeIcon icon="trash" />
+      </button>
     </div>
   );
 }

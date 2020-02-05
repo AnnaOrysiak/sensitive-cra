@@ -11,7 +11,7 @@ class Logoutpage extends Component {
 
   componentDidMount() {
     localStorage.removeItem('state', 'login');
-    setTimeout(() => this.setState({ redirect: true }), 1500)
+    setTimeout(() => this.setState({ redirect: true }), 500)
   }
 
   render() {

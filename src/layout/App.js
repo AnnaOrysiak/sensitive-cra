@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+// import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faHome, faUser, faUserSlash, faSun, faMoon, faEye, faEyeSlash, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import Header from './Header';
 import Navigation from './Navigation';
 import Page from './Page';
 import Footer from './Footer';
 import '../style/app.css';
+
+library.add(faHome, faUser, faUserSlash, faSun, faMoon, faEye, faEyeSlash, faTrash, faEdit);
 
 class App extends Component {
   state = {
@@ -23,7 +28,9 @@ class App extends Component {
           'appContainer light-mode' :
           'appContainer'}>
           <nav className='navigation'>
-            {<Navigation changeColor={this.handleColorMode} />}
+            {<Navigation
+              changeColor={this.handleColorMode}
+              lightMode={this.state.lightMode} />}
           </nav>
           <header className="banner">
             {<Header />}

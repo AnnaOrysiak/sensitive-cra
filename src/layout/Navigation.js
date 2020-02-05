@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Loader from '../components/Loader';
 import StoryList from '../components/StoryList';
 import storyApi from '../api/storyApi';
@@ -42,23 +43,25 @@ class Navigation extends Component {
               to='/sensitive-cra/'
               onClick={this.navigationHandler}
               exact>
-              <span className="icon">Start</span>
+              <FontAwesomeIcon icon="home" size="2x" />
             </NavLink>
             {
               this.checkPermission() ?
                 <NavLink
                   to='/sensitive-cra/logout'
                   onClick={this.navigationHandler}>
-                  <span className="icon">Wyloguj</span>
+                  <FontAwesomeIcon icon="user-slash" size="2x" />
                 </NavLink> :
                 <NavLink
                   to='/sensitive-cra/admin'
                   onClick={this.navigationHandler}>
-                  <span className="icon">Zaloguj</span>
+                  <FontAwesomeIcon icon="user" size="2x" />
                 </NavLink>
             }
 
-            <button className='btn' onClick={this.props.changeColor}>słoneczko</button>
+            <button className='btn' onClick={this.props.changeColor}>
+              <FontAwesomeIcon icon={this.props.lightMode ? 'moon' : 'sun'} size="2x" />
+            </button>
           </section>
 
           <h3 className="menu__header">Opowiadania</h3>
