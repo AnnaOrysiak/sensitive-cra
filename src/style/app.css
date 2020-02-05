@@ -26,4 +26,5 @@
 .light-mode {
   color: #112d4e;
   background-color: #dbe2ef;
+  transition: background-color .5s ease-in-out;
 }

@@ -52,3 +52,7 @@ button:focus {
 ul {
   list-style: none;
 }
+
+.light-mode * {
+  transition: background-color .5s ease-in-out;
+}
