@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 // import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faHome, faUser, faUserSlash, faSun, faMoon, faEye, faEyeSlash, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser, faPowerOff, faSun, faMoon, faEye, faEyeSlash, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import Header from './Header';
 import Navigation from './Navigation';
 import Page from './Page';
 import Footer from './Footer';
 import '../style/app.css';
 
-library.add(faHome, faUser, faUserSlash, faSun, faMoon, faEye, faEyeSlash, faTrash, faEdit);
+library.add(faHome, faUser, faPowerOff, faSun, faMoon, faEye, faEyeSlash, faTrash, faEdit);
 
 class App extends Component {
   state = {

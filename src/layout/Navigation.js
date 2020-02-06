@@ -45,18 +45,18 @@ class Navigation extends Component {
               exact>
               <FontAwesomeIcon icon="home" size="2x" />
             </NavLink>
+            <NavLink
+              to='/sensitive-cra/admin'
+              onClick={this.navigationHandler}>
+              <FontAwesomeIcon icon="user" size="2x" />
+            </NavLink>
             {
-              this.checkPermission() ?
-                <NavLink
-                  to='/sensitive-cra/logout'
-                  onClick={this.navigationHandler}>
-                  <FontAwesomeIcon icon="user-slash" size="2x" />
-                </NavLink> :
-                <NavLink
-                  to='/sensitive-cra/admin'
-                  onClick={this.navigationHandler}>
-                  <FontAwesomeIcon icon="user" size="2x" />
-                </NavLink>
+              this.checkPermission() &&
+              <NavLink
+                to='/sensitive-cra/logout'
+                onClick={this.navigationHandler}>
+                <FontAwesomeIcon icon="power-off" size="2x" />
+              </NavLink>
             }
 
             <button className='btn' onClick={this.props.changeColor}>
