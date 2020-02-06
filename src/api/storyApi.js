@@ -44,7 +44,6 @@ class StoryApi {
   static deleteStoryById(id) {
     return fetch(`${config.adminCorsUrl}story/delete/${id}`)
       .then(res => {
-        console.log(id)
         if (res.ok) {
           return res.json()
         } else {

@@ -23,7 +23,7 @@ const StoryElement = ({ id, title, chapter_title, visible, handleDeleteStory }) 
       <button
         className='listBtn'
         value={id}
-        onClick={handleDeleteStory}>
+        onClick={() => handleDeleteStory(id)}>
         <FontAwesomeIcon icon="trash" />
       </button>
     </div>

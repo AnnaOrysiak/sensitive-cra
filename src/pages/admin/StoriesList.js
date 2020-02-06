@@ -19,12 +19,15 @@ class StoriesList extends Component {
     />)
   }
 
-  handleDeleteStory = (e) => {
-    e.preventDefault();
-    const id = e.target.value;
-    console.log(id);
+  deleteStoryFromState = (id) => {
+    this.setState(prevState => ({
+      stories: prevState.stories.filter(story => story._id !== id && story)
+    }))
+  }
+
+  handleDeleteStory = (id = '') => {
+    this.deleteStoryFromState(id);
     storyApi.deleteStoryById(id)
-      .then(data => console.log(data))
   }
 
   componentDidMount() {

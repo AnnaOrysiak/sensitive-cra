@@ -1,15 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import newsApi from '../../../api/newsApi';
 
-function handleDeleteNews(e) {
-  e.preventDefault();
-  newsApi.deleteNewsById(e.target.value)
-    .then(data => console.log(data))
-}
-
-
-const News = ({ title, date, id }) => {
+const NewsElement = ({ title, date, id, handleDeleteNews }) => {
   const utfDate = new Date(date);
 
   return (
@@ -24,11 +16,11 @@ const News = ({ title, date, id }) => {
       <button
         className='listBtn'
         value={id}
-        onClick={handleDeleteNews}>
+        onClick={() => handleDeleteNews(id)}>
         <FontAwesomeIcon icon="trash" />
       </button>
     </div>
   );
 }
 
-export default News;
+export default NewsElement;
