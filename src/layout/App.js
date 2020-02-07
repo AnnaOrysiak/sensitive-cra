@@ -7,6 +7,7 @@ import Header from './Header';
 import Navigation from './Navigation';
 import Page from './Page';
 import Footer from './Footer';
+import Kitty from './Kitty';
 import '../style/app.css';
 
 library.add(faHome, faUser, faPowerOff, faSun, faMoon, faEye, faEyeSlash, faTrash, faEdit);
@@ -41,6 +42,7 @@ class App extends Component {
           <footer className="footer">
             {<Footer />}
           </footer>
+          <Kitty />
         </div>
       </Router>
     );

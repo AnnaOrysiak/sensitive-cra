@@ -1,7 +1,8 @@
 .footer {
+  position: relative;
   min-height: 10vh;
   padding: 2rem;
-  background-color: brown;
+  background-color: maroon;
   color: white;
   text-align: center;
   letter-spacing: 2px;

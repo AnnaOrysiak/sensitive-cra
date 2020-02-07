@@ -21,10 +21,11 @@
     "nav footer footer footer";
   grid-template-columns: 0 auto auto auto;
   grid-template-rows: auto;
+  position: relative;
 }
 
 .light-mode {
-  color: #112d4e;
-  background-color: #dbe2ef;
+  color: #3f72af;
+  background-color: #DDDBD9;
   transition: background-color .5s ease-in-out;
 }
