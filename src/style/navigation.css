@@ -77,6 +77,8 @@
   background-color: #262626;
   min-width: 100vw;
   min-height: 100vh;
+  top: 0;
+  bottom: 0;
   padding: 3rem 1rem;
   box-shadow: 0 0 5px lightcoral;
   transform: translateX(-100%);
