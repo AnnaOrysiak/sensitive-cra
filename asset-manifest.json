@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/sensitive-cra/static/css/main.316f83b0.chunk.css",
+    "main.css": "/sensitive-cra/static/css/main.58024981.chunk.css",
     "main.js": "/sensitive-cra/static/js/main.a0f174f3.chunk.js",
     "main.js.map": "/sensitive-cra/static/js/main.a0f174f3.chunk.js.map",
     "runtime-main.js": "/sensitive-cra/static/js/runtime-main.e2ad1c5c.js",
@@ -8,15 +8,15 @@
     "static/js/2.def62f0e.chunk.js": "/sensitive-cra/static/js/2.def62f0e.chunk.js",
     "static/js/2.def62f0e.chunk.js.map": "/sensitive-cra/static/js/2.def62f0e.chunk.js.map",
     "index.html": "/sensitive-cra/index.html",
-    "precache-manifest.6eab4042d68ff538c908e588a850be92.js": "/sensitive-cra/precache-manifest.6eab4042d68ff538c908e588a850be92.js",
+    "precache-manifest.4c612f07038746b6c3622c1b12c81f61.js": "/sensitive-cra/precache-manifest.4c612f07038746b6c3622c1b12c81f61.js",
     "service-worker.js": "/sensitive-cra/service-worker.js",
-    "static/css/main.316f83b0.chunk.css.map": "/sensitive-cra/static/css/main.316f83b0.chunk.css.map",
+    "static/css/main.58024981.chunk.css.map": "/sensitive-cra/static/css/main.58024981.chunk.css.map",
     "static/js/2.def62f0e.chunk.js.LICENSE": "/sensitive-cra/static/js/2.def62f0e.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.e2ad1c5c.js",
     "static/js/2.def62f0e.chunk.js",
-    "static/css/main.316f83b0.chunk.css",
+    "static/css/main.58024981.chunk.css",
     "static/js/main.a0f174f3.chunk.js"
   ]
 }
