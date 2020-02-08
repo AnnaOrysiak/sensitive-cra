@@ -1,8 +1,8 @@
 .header {
   min-height: 10vh;
-  background-color: maroon;
+  background-color: #595959;
 }
 
 .light-mode .header {
-  background-color: #3f72af;
+  background-color: #8C8C8C;
 }

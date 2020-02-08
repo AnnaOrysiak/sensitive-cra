@@ -12,11 +12,7 @@
   align-items: flex-start;
   flex-wrap: wrap;
   margin: 1rem 0 2rem;
-  border-bottom: 1px solid maroon;
-}
-
-.light-mode .articleNews {
-  border-bottom-color: #3f72af;
+  border-bottom: 1px solid lightcoral;
 }
 
 .articleNews__description {
