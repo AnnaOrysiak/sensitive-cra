@@ -12,6 +12,7 @@
   position: relative;
   width: 100%;
   min-height: 5rem;
+  border: none;
 }
 
 .form__input {
@@ -22,6 +23,8 @@
   border: none;
   border-bottom: 2px solid #595959;
   color: #A6A6A6;
+  font-family: 'Montserrat', sans-serif;
+  transition: .2s ease;
 }
 
 .light-mode .form__input {
@@ -54,12 +57,22 @@
 }
 
 textarea {
+  margin: 2rem auto;
   background-color: transparent;
   color: #A6A6A6;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  min-width: 100%;
+  max-width: 100%;
 }
 
 .light-mode textarea {
   color: #595959;
+}
+
+textarea:focus {
+  outline: lightcoral;
 }
 
 .form__button {
@@ -104,4 +117,39 @@ textarea {
 
 .otherInformation {
   text-align: center;
+}
+
+input:disabled,
+input:disabled~label {
+  opacity: .1;
+  transform: scaleY(0);
+}
+
+.editContainer {
+  position: relative;
+  top: -2vw;
+  left: -2vw;
+  min-width: calc(1024px + 2vw);
+  max-width: calc(1024px + 2vw);
+  padding: 2vw;
+  background-color: #262626;
+  z-index: 5;
+  /* opacity: 1; */
+}
+
+.light-mode .editContainer {
+  background-color: #D9D9D9;
+}
+
+.editForm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form__options {
+  flex-basis: 50%;
+  padding: 2rem;
 }
