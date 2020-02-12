@@ -24,7 +24,7 @@
 @media screen and (min-width:1024px) {
   .mainContainer {
     margin: 0 auto;
-    min-width: 700px;
+    min-width: 1024px;
     max-width: 1024px;
   }
 }

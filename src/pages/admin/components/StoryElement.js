@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //     .then(data => console.log(data))
 // }
 
-const StoryElement = ({ id, title, chapter_title, visible, handleDeleteStory }) => {
+const StoryElement = ({ id, title, chapter_title, visible, handleDeleteStory, handleEditStory }) => {
   return (
     <div className='storyListItem'>
       <button className='listBtn'>
@@ -17,7 +17,7 @@ const StoryElement = ({ id, title, chapter_title, visible, handleDeleteStory }) 
       </button>
       <p className='storyListItem__title'>{chapter_title ? chapter_title : title}</p>
       <p className='storyListItem__title small'>{chapter_title ? `(${title})` : '(one-shot)'}</p>
-      <button className='listBtn'>
+      <button className='listBtn' onClick={() => handleEditStory()}>
         <FontAwesomeIcon icon="edit" />
       </button>
       <button
