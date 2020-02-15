@@ -20,6 +20,7 @@ class StoriesList extends Component {
       chapter_title={story.chapter_title}
       visible={story.visible}
       handleDeleteStory={this.handleDeleteStory}
+      handleUpdateStory={this.handleUpdateStory}
       handleEditStory={() => this.handleEditStory(story)}
     />)
   }
@@ -30,9 +31,22 @@ class StoriesList extends Component {
     }))
   }
 
+  updateStoryFromState = (id) => {
+    this.setState((prevState) => ({
+      stories: prevState.stories.map(story => story._id === id ?
+        { ...story, visible: !story.visible } :
+        story)
+    }))
+  }
+
   handleDeleteStory = (id = '') => {
     this.deleteStoryFromState(id);
     storyApi.deleteStoryById(id)
+  }
+
+  handleUpdateStory = (id = '', data = {}) => {
+    this.updateStoryFromState(id);
+    storyApi.updateStoryById(id, data)
   }
 
   handleEditStory = (props = '') => {
@@ -51,11 +65,18 @@ class StoriesList extends Component {
     return (
       <>
         <div className='adminStories'>
-          {this.state.editmode && <EditStory content={this.state.edit_content !== '' ? this.state.edit_content : null} />}
+          {this.state.editmode && <EditStory
+            content={this.state.edit_content !== '' ?
+              this.state.edit_content :
+              null} />}
           <h3>Twoja twórczość</h3>
-          {this.state.stories.length > 0 ? this.generateStoriesList() : <Loader />}
+          {this.state.stories.length > 0 ?
+            this.generateStoriesList() :
+            <Loader />}
           <div className="addListItem">
-            <button className='listBtn' onClick={() => this.handleEditStory('')}>
+            <button
+              className='listBtn'
+              onClick={() => this.handleEditStory('')}>
               <FontAwesomeIcon icon="plus" />
             </button>
             <p className="storyListItem__title">Nowy tytuł</p>
