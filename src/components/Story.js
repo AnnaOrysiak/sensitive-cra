@@ -13,10 +13,6 @@ const Story = (props) => {
       <h3 className="story__title">{type === "story" ? chapter_title : title}</h3>
       <div className="story__content">{parse(content)}</div>
       <p className="story__authors">{storyAuthors}</p>
-
-      {/* pagination here */}
-      {type === "story" ? <p>"pagination"</p> : <p>"no-pagination"</p>}
-      {/* end of pagination */}
     </article>
 
   );

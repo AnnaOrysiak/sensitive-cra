@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 // import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faHome, faUser, faPowerOff, faSun, faMoon, faEye, faEyeSlash, faTrash, faEdit, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight, faHome, faUser, faPowerOff, faSun, faMoon, faEye, faEyeSlash, faTrash, faEdit, faPlus } from '@fortawesome/free-solid-svg-icons';
 import Header from './Header';
 import Navigation from './Navigation';
 import Page from './Page';
@@ -10,7 +10,7 @@ import Footer from './Footer';
 import Kitty from './Kitty';
 import '../style/app.css';
 
-library.add(faHome, faUser, faPowerOff, faSun, faMoon, faEye, faEyeSlash, faTrash, faEdit, faPlus);
+library.add(faChevronLeft, faChevronRight, faHome, faUser, faPowerOff, faSun, faMoon, faEye, faEyeSlash, faTrash, faEdit, faPlus);
 
 class App extends Component {
   state = {

@@ -29,15 +29,8 @@ class Navigation extends Component {
   render() {
     return (
       <>
-        <div
-          className={this.state.active ? 'btn menu-button active' : 'btn menu-button'}
-          onClick={this.navigationHandler}>
-          <span className="menu-button__bar"></span>
-          <span className="menu-button__bar"></span>
-          <span className="menu-button__bar"></span>
-        </div>
-
         <div className={this.state.active ? 'menu active' : 'menu'}>
+
           <section className="icons">
             <NavLink
               to='/sensitive-cra/'
@@ -70,6 +63,15 @@ class Navigation extends Component {
               stories={this.state.stories}
               navigationHandler={this.navigationHandler} />
             : <Loader />}
+        </div>
+
+        <div
+          className={this.state.active ? 'btn menu-button active' : 'btn menu-button'}
+          onClick={this.navigationHandler}>
+          {/* <span className="menu-button__bar"></span>
+          <span className="menu-button__bar"></span>
+          <span className="menu-button__bar"></span> */}
+          <FontAwesomeIcon icon="chevron-right" size="2x" />
         </div>
       </>);
   }

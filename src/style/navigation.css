@@ -1,75 +1,7 @@
 .navigation {
+  position: relative;
   z-index: 10;
   background-color: black;
-}
-
-.menu-button {
-  position: fixed;
-  top: 30px;
-  left: 10px;
-  transform: translateY(-50%);
-  transform-origin: center center;
-  width: 40px;
-  height: 40px;
-  border: 2px solid lightcoral;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, .5);
-  cursor: pointer;
-  z-index: 10;
-}
-
-
-.light-mode .menu-button {
-  background-color: rgba(255, 255, 255, .9);
-}
-
-.menu-button__bar {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 66%;
-  height: 3px;
-  border-radius: 30px;
-  background-color: lightcoral;
-  font-size: .6rem;
-  text-align: center;
-  font-weight: bold;
-  line-height: 0;
-  transform-origin: center center;
-  transition: transform .2s linear, border-radius .5s linear;
-}
-
-
-.menu-button__bar:nth-child(1) {
-  transform: translate(-50%, -300%);
-}
-
-.menu-button__bar:nth-child(2) {
-  background-color: transparent;
-}
-
-.menu-button__bar:nth-child(2)::before {
-  display: block;
-  width: 100%;
-  content: "open";
-  transform: translateY(.05rem);
-}
-
-.menu-button__bar:nth-child(3) {
-  transform: translate(-50%, 200%);
-}
-
-.menu-button.active .menu-button__bar:nth-child(1) {
-  transform: translate(-50%, 200%);
-}
-
-.menu-button.active .menu-button__bar:nth-child(2)::before {
-  content: "close";
-}
-
-.menu-button.active .menu-button__bar:nth-child(3) {
-  transform: translate(-50%, -300%);
 }
 
 .menu {
@@ -80,7 +12,6 @@
   top: 0;
   bottom: 0;
   padding: 3rem 1rem;
-  box-shadow: 0 0 5px lightcoral;
   transform: translateX(-100%);
   transition: background-color .5s ease-in-out, transform .3s linear;
   z-index: 9;
@@ -102,8 +33,10 @@
 }
 
 .icons>* {
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
-  padding: .5rem;
+  text-align: center;
   transition: color .3s linear;
 }
 
@@ -190,9 +123,62 @@
   color: #A6A6A6;
 }
 
+
+.menu-button {
+  position: fixed;
+  top: 2rem;
+  left: 0;
+  transform: translateY(-50%);
+  transform-origin: center center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0 50% 50% 0;
+  background-color: lightcoral;
+  color: #262626;
+  cursor: pointer;
+  z-index: 10;
+  text-align: center;
+  transition: transform .3s linear, color .3s linear;
+}
+
+
+.light-mode .menu-button {
+  color: #262626;
+}
+
+.menu-button>* {
+  transition: transform .3s .4s ease;
+}
+
+.menu-button:hover {
+  color: #D9D9D9;
+}
+
+.menu-button.active>* {
+  transform: rotateY(180deg);
+}
+
 @media screen and (min-width:1024px) {
   .menu {
     min-width: 400px;
     max-width: 400px;
+    border-right: 2px solid lightcoral;
+    padding: 0 1rem 3rem;
   }
+
+  .icons {
+    margin: 10vh 0 1rem;
+    transform: translateY(-50%);
+  }
+
+  .menu-button {
+    top: 10vh;
+  }
+
+  .menu-button.active {
+    transform: translate(400px, -50%);
+  }
+
+
+
 }

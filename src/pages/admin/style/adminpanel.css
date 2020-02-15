@@ -17,6 +17,7 @@
 .adminStories {
   position: relative;
   background-color: #595959;
+  border-radius: .5rem;
   min-height: 10rem;
   width: 35%;
   padding: 1rem;
