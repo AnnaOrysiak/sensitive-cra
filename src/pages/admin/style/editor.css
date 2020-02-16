@@ -1,0 +1,91 @@
+.rdw-editor-main {
+  height: 100%;
+  overflow: auto;
+}
+
+.rdw-editor-toolbar {
+  padding: .5rem;
+  border: none;
+  border-radius: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: rgba(255, 255, 255, 0); */
+  background: #595959;
+  flex-wrap: wrap;
+  font-size: 15px;
+  margin-bottom: 5px;
+  user-select: none;
+}
+
+.rdw-editor-wrapper:focus {
+  outline: none;
+}
+
+.rdw-editor-wrapper {
+  box-sizing: content-box;
+}
+
+.rdw-editor-main blockquote {
+  border-left: 5px solid rgba(255, 255, 255, .2);
+  padding-left: 5px;
+}
+
+.rdw-editor-main pre {
+  background: rgba(255, 255, 255, .2);
+  border-radius: 3px;
+  padding: 1px 10px;
+}
+
+.rdw-inline-wrapper,
+.rdw-list-wrapper,
+.rdw-text-align-wrapper,
+.rdw-image-wrapper {
+  display: flex;
+  flex-flow: row;
+  color: black;
+  margin: 0;
+}
+
+.rdw-option-wrapper {
+  padding: 1rem 1rem;
+  background: #D9D9D9;
+  border: none;
+  border-radius: .5rem;
+  transition: .3s ease;
+}
+
+.rdw-option-wrapper:hover {
+  box-shadow: none;
+  background: lightcoral;
+}
+
+.rdw-option-active {
+  box-shadow: 0 0 2px 2px lightpink;
+  background: lightcoral;
+}
+
+textarea.invisible {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 10vw;
+  min-height: 7vh;
+  max-height: 7vh;
+  background-color: #fff;
+  /* z-index: 0; */
+  opacity: 0;
+}
+
+.public-DraftStyleDefault-block {
+  margin: 1rem 0;
+}
+
+.public-DraftEditor-content>div>div>div>*:first-child {
+  padding-left: 2rem;
+}
+
+.public-DraftEditor-content>div>div:first-child>div::first-letter {
+  font-size: 3rem;
+}
