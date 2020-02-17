@@ -1,8 +1,14 @@
 import React from 'react';
 
-const AuthorsInputs = ({ authors, author, checkChange }) => {
+const AuthorsInputs = ({
+  allAuthors,
+  author,
+  authors_message,
+  errors,
+  checkChange
+}) => {
   const generateAuthors = () => {
-    return authors.map((item, index) =>
+    return allAuthors.map((item, index) =>
       item.login !== author ? (
         <label key={index}>
           <input
@@ -28,7 +34,17 @@ const AuthorsInputs = ({ authors, author, checkChange }) => {
     );
   };
 
-  return generateAuthors();
+  return (
+    <section className="form__options">
+      <fieldset className="form__field">
+        <legend>Autorzy</legend>
+        {generateAuthors()}
+        <br />
+      </fieldset>
+
+      {errors.authors && <span className="form__alert">{authors_message}</span>}
+    </section>
+  );
 };
 
 export default AuthorsInputs;

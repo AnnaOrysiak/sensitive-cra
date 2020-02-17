@@ -56,6 +56,12 @@
   transform: translateY(-120%);
 }
 
+.form__input,
+textarea,
+[contenteditable] {
+  caret-color: lightcoral;
+}
+
 textarea {
   margin: 2rem auto;
   background-color: transparent;

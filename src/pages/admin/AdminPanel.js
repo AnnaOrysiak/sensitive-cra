@@ -7,14 +7,14 @@ import './style/adminpanel.css';
 class AdminPanel extends Component {
   state = {
     user: this.props.user,
-    authors: []
+    allAuthors: []
   };
 
   componentDidMount() {
     usersApi.getAllUsers().then(data => {
       if (data) {
-        this.setState({
-          authors: data.map(({ login }) => ({ login }))
+        return this.setState({
+          allAuthors: data.map(({ login }) => ({ login }))
         });
       }
     });
@@ -25,7 +25,10 @@ class AdminPanel extends Component {
       <>
         <div className="adminPanel">
           <h3 className="adminName">{this.state.user}</h3>
-          <StoriesList author={this.state.user} authors={this.state.authors} />
+          <StoriesList
+            author={this.state.user}
+            allAuthors={this.state.allAuthors}
+          />
           <NewsList />
         </div>
       </>

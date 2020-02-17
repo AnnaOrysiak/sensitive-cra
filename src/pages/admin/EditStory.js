@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import TextEditor from './components/Editor';
+import TypeInputs from './components/TypeInputs';
+import StoryMainProperties from './components/StoryMainProperties';
 import AuthorsInputs from './components/AuthorsInputs';
+import storyApi from '../../api/storyApi';
 import '../../style/forms.css';
 
 class EditStory extends Component {
   state = {
+    _id: '',
     type: '',
     title: '',
     chapter_title: false,
@@ -47,17 +51,15 @@ class EditStory extends Component {
       }
     });
 
-    return !(type && title && chapter_title && content && authors);
+    return !type && !title && !chapter_title && !content && !authors;
   };
 
   handleTypeChange = e => {
-    e.preventDefault();
     this.formValidate();
     this.setState({ type: e.target.value });
   };
 
   handlerOnChange = e => {
-    e.preventDefault();
     this.formValidate();
 
     const authors = Object.entries(this.state.checked)
@@ -76,40 +78,66 @@ class EditStory extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
+    const { _id, type, title, chapter_title, content, authors } = this.state;
     if (this.formValidate()) {
       console.log('aktualizuję dane');
+      let data;
+
+      if (type !== 'one-shot') {
+        data = { type, title, chapter_title, content, authors };
+      } else {
+        data = { type, title, content, authors };
+      }
+      console.log(data);
+      _id !== 'new'
+        ? storyApi.updateStoryById(_id, data)
+        : storyApi.createNewStory(data).then(data => console.log(data));
+    } else {
+      alert('Uzupełnij brakujące pola!');
     }
   };
 
-  convertToObject = (array, key) => {
-    const initialValue = {};
-    return array.reduce((obj, item) => {
-      return {
-        ...obj,
-        [item[key]]: false
-      };
-    }, initialValue);
+  convertToObject = (array, value) => {
+    return array
+      .map(item => ({ [item]: value }))
+      .reduce(function(result, item) {
+        const key = Object.keys(item)[0];
+        result[key] = item[key];
+        return result;
+      }, {});
   };
 
   componentDidMount() {
-    const { type, title, chapter_title, content, authors } = this.props.content;
-    const author = this.props.author;
-    const checked = this.convertToObject(this.props.authors, 'login');
-
-    this.setState({
+    const {
+      _id,
       type,
       title,
       chapter_title,
       content,
-      checked: { ...checked, [author]: true },
+      authors
+    } = this.props.editContent;
+
+    const checked = this.convertToObject(authors, true);
+
+    this.setState({
+      _id,
+      type,
+      title,
+      chapter_title,
+      content,
+      checked,
       authors
     });
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.content !== prevProps.content) {
-      this.setState(this.props.content);
+    if (this.props.editContent !== prevProps.editContent) {
+      const checked = this.convertToObject(
+        this.props.editContent.authors,
+        true
+      );
+
+      this.setState({ ...this.props.editContent, checked });
     }
   }
 
@@ -128,100 +156,31 @@ class EditStory extends Component {
         <h3>Tryb edycji</h3>
 
         <form method="post" className="form editForm">
-          <section className="form__options">
-            <legend>Rodzaj</legend>
-            <fieldset className="form__field">
-              <input
-                type="radio"
-                id="story"
-                name="type"
-                value="story"
-                checked={type === 'story'}
-                onChange={this.handleTypeChange}
-              />
-              <label htmlFor="story">opowiadanie</label>
-              <br />
-              <input
-                type="radio"
-                id="one-shot"
-                name="type"
-                value="one-shot"
-                checked={type === 'one-shot'}
-                disabled={chapter_title}
-                onChange={this.handleTypeChange}
-              />
-              <label htmlFor="one-shot">one-shot</label>
-            </fieldset>
+          <TypeInputs
+            type={type}
+            chapter_title={chapter_title}
+            type_message={type_message}
+            errors={errors}
+            handleTypeChange={this.handleTypeChange}
+          />
 
-            {errors.type && <span className="form__alert">{type_message}</span>}
-          </section>
+          <AuthorsInputs
+            author={this.props.author}
+            allAuthors={this.props.allAuthors}
+            authors_message={authors_message}
+            errors={errors}
+            checkChange={this.handlerOnChange}
+          />
 
-          <section className="form__options">
-            <fieldset className="form__field">
-              <legend>Autorzy</legend>
-              <AuthorsInputs
-                author={this.props.author}
-                authors={this.props.authors}
-                checkChange={this.handlerOnChange}
-              />
-              <br />
-            </fieldset>
-
-            {errors.authors && (
-              <span className="form__alert">{authors_message}</span>
-            )}
-          </section>
-
-          <section className="form__options">
-            <div className="form__field">
-              <input
-                type="text"
-                name="title"
-                id="title"
-                className={
-                  title.length > 0 ? 'form__input filled' : 'form__input'
-                }
-                value={title}
-                onChange={this.handlerOnChange}
-                minLength="2"
-                required
-              />
-              <label htmlFor="title" className="form__label">
-                Tytuł
-              </label>
-            </div>
-
-            {errors.title && (
-              <span className="form__alert">{title_message}</span>
-            )}
-          </section>
-
-          <section className="form__options">
-            <div className="form__field">
-              <input
-                type="text"
-                name="chapter_title"
-                id="chapter_title"
-                className={
-                  chapter_title.length > 0
-                    ? 'form__input filled'
-                    : 'form__input'
-                }
-                value={chapter_title ? chapter_title : ''}
-                onChange={this.handlerOnChange}
-                disabled={type === 'one-shot'}
-                minLength="1"
-                required
-              />
-              <label htmlFor="chapter__title" className="form__label">
-                Rozdział
-              </label>
-            </div>
-
-            {errors.chapter_title && (
-              <span className="form__alert">{chapter_title_message}</span>
-            )}
-          </section>
+          <StoryMainProperties
+            type={type}
+            title={title}
+            chapter_title={chapter_title || ''}
+            title_message={title_message}
+            chapter_title_message={chapter_title_message}
+            errors={errors}
+            handlerOnChange={this.handlerOnChange}
+          />
 
           <div className="form__editor">
             <TextEditor content={content} handleChange={this.handlerOnChange} />

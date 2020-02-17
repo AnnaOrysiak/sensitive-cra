@@ -99,11 +99,6 @@ class TextEditor extends Component {
           placeholder="Pisz tutaj"
         />
 
-        {/* <textarea
-        readOnly
-        className="rdw-storybook-textarea"
-        value={draftToHtml(convertToRaw(editorState.getCurrentContent()))} /> */}
-
         <textarea
           readOnly
           className="rdw-storybook-textarea invisible"

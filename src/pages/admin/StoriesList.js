@@ -13,11 +13,12 @@ class StoriesList extends Component {
   };
 
   storyModel = {
+    _id: 'new',
     type: '',
     title: '',
     chapter_title: false,
     content: '',
-    authors: []
+    authors: [this.props.author]
   };
 
   generateStoriesList = () => {
@@ -60,6 +61,7 @@ class StoriesList extends Component {
   };
 
   handleEditStory = (props = '') => {
+    console.log(props);
     this.setState({
       editmode: true,
       edit_content: props
@@ -79,8 +81,8 @@ class StoriesList extends Component {
           {this.state.editmode && (
             <EditStory
               author={this.props.author}
-              authors={this.props.authors}
-              content={
+              allAuthors={this.props.allAuthors}
+              editContent={
                 this.state.edit_content !== '' ? this.state.edit_content : ''
               }
             />
