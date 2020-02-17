@@ -4,18 +4,22 @@
 }
 
 .rdw-editor-toolbar {
+  position: sticky;
+  top: 0;
+  left: 50%;
+  min-width: 1000px;
   padding: .5rem;
   border: none;
-  border-radius: .5rem;
+  border-radius: 0 0 .5rem .5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: rgba(255, 255, 255, 0); */
   background: #595959;
   flex-wrap: wrap;
   font-size: 15px;
   margin-bottom: 5px;
   user-select: none;
+  z-index: 5;
 }
 
 .rdw-editor-wrapper:focus {
@@ -61,7 +65,7 @@
 }
 
 .rdw-option-active {
-  box-shadow: 0 0 2px 2px lightpink;
+  box-shadow: none;
   background: lightcoral;
 }
 
@@ -88,4 +92,8 @@ textarea.invisible {
 
 .public-DraftEditor-content>div>div:first-child>div::first-letter {
   font-size: 3rem;
+}
+
+.public-DraftStyleDefault-ltr {
+  text-align: unset;
 }
