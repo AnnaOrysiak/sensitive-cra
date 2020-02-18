@@ -155,9 +155,14 @@ class EditStory extends Component {
     return (
       <div className="editContainer">
         <h3>Tryb edycji</h3>
-        <button className="listBtn" onClick={this.props.closeEditStory}>
-          <FontAwesomeIcon icon="times" />
+        <button
+          className="btn listBtn listBtn--main"
+          onClick={this.props.closeEditStory}
+        >
+          <FontAwesomeIcon icon="times" size="2x" />
+          <span className="description">Zamknij</span>
         </button>
+
         <form method="post" className="form editForm">
           <TypeInputs
             type={type}

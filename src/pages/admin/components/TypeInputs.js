@@ -11,26 +11,31 @@ const TypeInputs = ({
     <section className="form__options">
       <legend>Rodzaj</legend>
       <fieldset className="form__field">
-        <input
-          type="radio"
-          id="story"
-          name="type"
-          value="story"
-          checked={type === 'story'}
-          onChange={handleTypeChange}
-        />
-        <label htmlFor="story">opowiadanie</label>
-        <br />
-        <input
-          type="radio"
-          id="one-shot"
-          name="type"
-          value="one-shot"
-          checked={type === 'one-shot'}
-          disabled={chapter_title}
-          onChange={handleTypeChange}
-        />
-        <label htmlFor="one-shot">one-shot</label>
+        <label htmlFor="story" className="inputContainer">
+          opowiadanie
+          <input
+            type="radio"
+            id="story"
+            name="type"
+            value="story"
+            checked={type === 'story'}
+            onChange={handleTypeChange}
+          />
+          <span className="checkmark checkmark--radio"></span>
+        </label>
+        <label htmlFor="one-shot" className="inputContainer">
+          one-shot
+          <input
+            type="radio"
+            id="one-shot"
+            name="type"
+            value="one-shot"
+            checked={type === 'one-shot'}
+            disabled={chapter_title}
+            onChange={handleTypeChange}
+          />
+          <span className="checkmark checkmark--radio"></span>
+        </label>
       </fieldset>
 
       {errors.type && <span className="form__alert">{type_message}</span>}

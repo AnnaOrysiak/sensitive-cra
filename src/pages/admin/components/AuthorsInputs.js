@@ -10,7 +10,7 @@ const AuthorsInputs = ({
   const generateAuthors = () => {
     return allAuthors.map((item, index) =>
       item.login !== author ? (
-        <label key={index}>
+        <label key={index} className="inputContainer">
           <input
             type="checkbox"
             name="authors"
@@ -18,9 +18,10 @@ const AuthorsInputs = ({
             onChange={checkChange}
           />
           {item.login}
+          <span className="checkmark"></span>
         </label>
       ) : (
-        <label key={index}>
+        <label key={index} className="inputContainer">
           <input
             type="checkbox"
             id="authors"
@@ -29,6 +30,7 @@ const AuthorsInputs = ({
             readOnly
           />
           {author}
+          <span className="checkmark"></span>
         </label>
       )
     );
