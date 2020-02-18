@@ -154,7 +154,7 @@ class EditStory extends Component {
     return (
       <div className="editContainer">
         <h3>Tryb edycji</h3>
-
+        <button onClick={this.props.closeEditStory}>zamknij</button>
         <form method="post" className="form editForm">
           <TypeInputs
             type={type}

@@ -2,20 +2,19 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const StoryElement = ({
-  id,
-  title,
-  chapter_title,
-  visible,
+  story,
   handleDeleteStory,
   handleUpdateStory,
   handleEditStory
 }) => {
+  const { _id, title, chapter_title, visible } = story;
+
   return (
     <div className="storyListItem">
       <button
         className="listBtn"
         value={visible}
-        onClick={() => handleUpdateStory(id, { visible: !visible })}
+        onClick={() => handleUpdateStory(_id, { visible: !visible })}
       >
         <FontAwesomeIcon icon={visible ? 'eye' : 'eye-slash'} />
       </button>
@@ -25,13 +24,13 @@ const StoryElement = ({
       <p className="storyListItem__title small">
         {chapter_title ? `(${title})` : '(one-shot)'}
       </p>
-      <button className="listBtn" onClick={() => handleEditStory()}>
+      <button className="listBtn" onClick={() => handleEditStory(story)}>
         <FontAwesomeIcon icon="edit" />
       </button>
       <button
         className="listBtn"
-        value={id}
-        onClick={() => handleDeleteStory(id)}
+        value={_id}
+        onClick={() => handleDeleteStory(_id)}
       >
         <FontAwesomeIcon icon="trash" />
       </button>

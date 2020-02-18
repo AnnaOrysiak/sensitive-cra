@@ -25,10 +25,7 @@ class StoriesList extends Component {
     return this.state.stories.map(story => (
       <StoryElement
         key={story._id}
-        id={story._id}
-        title={story.title}
-        chapter_title={story.chapter_title}
-        visible={story.visible}
+        story={story}
         handleDeleteStory={this.handleDeleteStory}
         handleUpdateStory={this.handleUpdateStory}
         handleEditStory={() => this.handleEditStory(story)}
@@ -61,10 +58,18 @@ class StoriesList extends Component {
   };
 
   handleEditStory = (props = '') => {
+    // czy można to jakoś ulepszyć?
     console.log(props);
     this.setState({
       editmode: true,
       edit_content: props
+    });
+  };
+
+  closeEditStory = () => {
+    this.setState({
+      editmode: false,
+      editContent: this.storyModel
     });
   };
 
@@ -83,8 +88,10 @@ class StoriesList extends Component {
               author={this.props.author}
               allAuthors={this.props.allAuthors}
               editContent={
+                // czy to jest konieczne?
                 this.state.edit_content !== '' ? this.state.edit_content : ''
               }
+              closeEditStory={this.closeEditStory}
             />
           )}
           <h3>Twoja twórczość</h3>
