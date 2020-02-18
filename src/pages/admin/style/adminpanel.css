@@ -103,11 +103,13 @@
 }
 
 .listBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
   width: 2rem;
   margin: 0 1rem;
-  line-height: 2rem;
   border-radius: 50%;
-  text-align: center;
   background-color: #262626;
   transition: .2s linear;
 }
@@ -115,6 +117,12 @@
 .listBtn:hover {
   color: #D9D9D9;
   box-shadow: 0 0 2px 2px lightcoral;
+}
+
+.listBtn--main {
+  position: absolute;
+  top: 27px;
+  left: -25px;
 }
 
 .small {

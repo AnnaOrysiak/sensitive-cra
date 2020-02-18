@@ -53,3 +53,28 @@ ul {
 .light-mode * {
   transition: background-color .5s ease-in-out;
 }
+
+@media screen and (min-width:1024px) {
+  .btn .description {
+    position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.7rem;
+    padding: .2rem .5rem;
+    border-radius: .5rem;
+    background-color: lightcoral;
+    color: #262626;
+    font-size: .8rem;
+    opacity: 0;
+    transition: opacity .4s ease-in, transform .2s .2s linear;
+  }
+
+  .btn:hover .description {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
