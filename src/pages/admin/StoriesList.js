@@ -33,6 +33,12 @@ class StoriesList extends Component {
     ));
   };
 
+  getStoriesByAuthor = author => {
+    storyApi
+      .getStoriesByAuthor(author)
+      .then(data => this.setState({ stories: data }));
+  };
+
   deleteStoryFromState = id => {
     this.setState(prevState => ({
       stories: prevState.stories.filter(story => story._id !== id && story)
@@ -74,9 +80,7 @@ class StoriesList extends Component {
   };
 
   componentDidMount() {
-    storyApi
-      .getStoriesByAuthor(this.props.author)
-      .then(data => this.setState({ stories: data }));
+    this.getStoriesByAuthor(this.props.author);
   }
 
   render() {

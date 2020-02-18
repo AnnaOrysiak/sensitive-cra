@@ -40,6 +40,18 @@ class StoryApi {
       .catch(err => err);
   }
 
+  // static getStoryContentById(id = '') {
+  //   return fetch(`${config.adminCorsUrl}story/${id}`)
+  //     .then(res => {
+  //       if (res.ok) {
+  //         return res.json();
+  //       } else {
+  //         throw new Error('error ', res.status);
+  //       }
+  //     })
+  //     .catch(err => err);
+  // }
+
   static createNewStory(data) {
     console.log(data);
     return fetch(`${config.adminCorsUrl}story/add`, {
@@ -72,7 +84,7 @@ class StoryApi {
   }
 
   static updateStoryById(id, data) {
-    console.log(id, data);
+    // console.log(id, data);
     return fetch(`${config.adminCorsUrl}story/update/${id}`, {
       method: 'PATCH',
       body: JSON.stringify(data),

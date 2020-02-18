@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TextEditor from './components/Editor';
 import TypeInputs from './components/TypeInputs';
 import StoryMainProperties from './components/StoryMainProperties';
@@ -90,8 +91,8 @@ class EditStory extends Component {
       }
       console.log(data);
       _id !== 'new'
-        ? storyApi.updateStoryById(_id, data)
-        : storyApi.createNewStory(data).then(data => console.log(data));
+        ? storyApi.updateStoryById(_id, data).then(data => alert(data.respond))
+        : storyApi.createNewStory(data).then(data => alert(data.respond));
     } else {
       alert('Uzupełnij brakujące pola!');
     }
@@ -154,7 +155,9 @@ class EditStory extends Component {
     return (
       <div className="editContainer">
         <h3>Tryb edycji</h3>
-        <button onClick={this.props.closeEditStory}>zamknij</button>
+        <button className="listBtn" onClick={this.props.closeEditStory}>
+          <FontAwesomeIcon icon="times" />
+        </button>
         <form method="post" className="form editForm">
           <TypeInputs
             type={type}
