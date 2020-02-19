@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Loader from '../components/Loader';
 import StoryList from '../components/StoryList';
+import config from '../api/config';
 import storyApi from '../api/storyApi';
 import '../style/navigation.css';
 
@@ -38,6 +39,7 @@ class Navigation extends Component {
               <FontAwesomeIcon icon="home" size="2x" />
               <span className="description">Start</span>
             </NavLink>
+
             <NavLink
               to="/sensitive-cra/admin"
               onClick={this.navigationHandler}
@@ -46,7 +48,8 @@ class Navigation extends Component {
               <FontAwesomeIcon icon="user" size="2x" />
               <span className="description">Panel użytkownika</span>
             </NavLink>
-            {this.checkPermission() && (
+
+            {window.innerWidth > config.desktopSize && this.checkPermission() && (
               <NavLink
                 to="/sensitive-cra/logout"
                 onClick={this.navigationHandler}

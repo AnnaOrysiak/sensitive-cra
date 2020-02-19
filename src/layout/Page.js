@@ -6,6 +6,7 @@ import Adminpage from '../pages/Adminpage';
 import Loginpage from '../pages/Loginpage';
 import Logoutpage from '../pages/Logoutpage';
 import Errorpage from '../pages/Errorpage';
+import config from '../api/config';
 
 const Page = () => {
   return (
@@ -13,10 +14,12 @@ const Page = () => {
       <Switch>
         <Route path="/sensitive-cra/" exact component={Homepage} />
         <Route path="/sensitive-cra/story/:id" component={Storypage} />
-        <Route path="/sensitive-cra/admin" component={Adminpage} />
+        {window.innerWidth > config.desktopSize && (
+          <Route path="/sensitive-cra/admin" component={Adminpage} />
+        )}
         <Route path="/sensitive-cra/login" component={Loginpage} />
         <Route path="/sensitive-cra/logout" component={Logoutpage} />
-        <Route path="/sensitive-cra/**" component={Errorpage} />
+        <Route component={Errorpage} />
       </Switch>
     </>
   );

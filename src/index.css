@@ -15,7 +15,6 @@ body {
 
 a {
   display: block;
-  margin: .5rem;
   padding: .25rem;
   color: lightcoral;
   text-decoration: none;
@@ -54,6 +53,12 @@ ul {
   transition: background-color .5s ease-in-out;
 }
 
+.description {
+  display: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .8rem;
+}
+
 @media screen and (min-width:1024px) {
   .btn .description {
     position: absolute;
@@ -68,7 +73,6 @@ ul {
     border-radius: .5rem;
     background-color: lightcoral;
     color: #262626;
-    font-size: .8rem;
     opacity: 0;
     transition: opacity .4s ease-in, transform .2s .2s linear;
   }
