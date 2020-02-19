@@ -1,6 +1,7 @@
 .container {
-
-  margin: 3rem 0;
+  position: relative;
+  min-height: calc(80vh - 2rem);
+  padding: 3rem 0;
   height: 60vh;
 }
 
@@ -18,8 +19,8 @@
 
 .fly {
   position: absolute;
-  top: 20%;
-  left: 70%;
+  bottom: 30vw;
+  left: 75%;
   width: .5vw;
   height: .5vw;
   background-color: black;
@@ -45,9 +46,9 @@
 
 .err-kittyCont {
   position: absolute;
-  top: 50%;
+  bottom: -1rem;
   left: 70%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   z-index: 10;
 }
 
