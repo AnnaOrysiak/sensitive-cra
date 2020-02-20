@@ -14,7 +14,7 @@ body {
 }
 
 a {
-  display: block;
+  display: inline-block;
   padding: .25rem;
   color: lightcoral;
   text-decoration: none;
@@ -66,9 +66,13 @@ ul {
     left: 50%;
     transform: translateX(-50%) scale(0);
     display: flex;
+    flex-wrap: nowrap;
+    flex-grow: 0;
     align-items: center;
-    justify-content: center;
-    height: 1.7rem;
+    justify-content: space-between;
+    /* min-width: 100%; */
+    max-width: 300%;
+    line-height: 1.7rem;
     padding: .2rem .5rem;
     border-radius: .5rem;
     background-color: lightcoral;
@@ -80,5 +84,16 @@ ul {
   .btn:hover .description {
     transform: translateX(-50%) scale(1);
     opacity: 1;
+  }
+
+  .description--ext {
+    right: -8vw
+  }
+
+  .external {
+    padding: 0;
+    color: #595959;
+    margin-left: .2rem;
+    line-height: 1.7rem;
   }
 }
