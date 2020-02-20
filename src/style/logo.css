@@ -1,0 +1,54 @@
+.logoContainer {
+  position: relative;
+  display: flex;
+  flex-grow: 0;
+  justify-content: space-arround;
+  align-items: center;
+  width: 10vh;
+  height: 10vh;
+  /* margin: 3rem auto; */
+}
+
+.circle {
+  position: relative;
+  width: 10vh;
+  height: 10vh;
+  background: #555;
+  border-radius: 50%;
+}
+
+.feather {
+  position: relative;
+  width: 5.5vh;
+  height: 4.5vh;
+  background: #262626;
+  border-radius: 100% 0% 60% 38% / 65% 0% 100% 17%;
+  transform: translate(50%, 50%) rotate(-36deg) skewX(-20deg);
+  overflow: hidden;
+}
+
+.feather::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 7vh;
+  height: 3vh;
+  background: rgba(0, 0, 0, .5);
+  transform: rotate(-36deg) skewX(20deg) translate(13%, 2%);
+}
+
+.scape {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: .3vh;
+  height: 8vh;
+  background: #A6A6A6;
+  transform: rotate(22deg) translate(-500%, -38%) skewY(-66deg);
+}
+
+.medium {
+  /* margin: 10vw 10vw; */
+  transform: scale(1);
+}

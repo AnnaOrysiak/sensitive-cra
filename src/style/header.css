@@ -1,8 +1,18 @@
 .header {
   min-height: 10vh;
   background-color: #595959;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: -20vw;
 }
 
 .light-mode .header {
   background-color: #8C8C8C;
+}
+
+.header__title {
+  display: block;
+  padding: 1rem;
 }
