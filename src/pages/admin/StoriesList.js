@@ -9,7 +9,8 @@ class StoriesList extends Component {
   state = {
     stories: [],
     editmode: false,
-    edit_content: {}
+    edit_content: {},
+    authors: []
   };
 
   storyModel = {
@@ -18,7 +19,7 @@ class StoriesList extends Component {
     title: '',
     chapter_title: false,
     content: '',
-    authors: [this.props.author]
+    authors: this.state.authors
   };
 
   generateStoriesList = () => {
@@ -65,7 +66,6 @@ class StoriesList extends Component {
 
   handleEditStory = (props = '') => {
     // czy można to jakoś ulepszyć?
-    console.log(props);
     this.setState({
       editmode: true,
       edit_content: props
@@ -81,6 +81,13 @@ class StoriesList extends Component {
 
   componentDidMount() {
     this.getStoriesByAuthor(this.props.author);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.author !== this.props.author) {
+      this.getStoriesByAuthor(this.props.author);
+      this.setState({ authors: [...this.state.authors, this.props.author] });
+    }
   }
 
   render() {

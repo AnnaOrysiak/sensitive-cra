@@ -5,7 +5,8 @@ const AuthorsInputs = ({
   author,
   authors_message,
   errors,
-  checkChange
+  checkChange,
+  authors
 }) => {
   const generateAuthors = () => {
     return allAuthors.map((item, index) =>
@@ -15,6 +16,7 @@ const AuthorsInputs = ({
             type="checkbox"
             name="authors"
             value={item.login}
+            checked={authors.includes(item.login)}
             onChange={checkChange}
           />
           {item.login}
@@ -25,8 +27,8 @@ const AuthorsInputs = ({
           <input
             type="checkbox"
             id="authors"
-            value={author}
-            checked={true}
+            // value={author}
+            defaultChecked
             readOnly
           />
           {author}

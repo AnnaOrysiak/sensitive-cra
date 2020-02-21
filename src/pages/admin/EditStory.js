@@ -62,18 +62,24 @@ class EditStory extends Component {
 
   handlerOnChange = e => {
     this.formValidate();
-
-    const authors = Object.entries(this.state.checked)
-      .filter(item => item[1] && item[0])
-      .map(item => item[0]);
-
+    console.log(this.props.author);
     if (e.target.type === 'checkbox') {
+      const authors = Object.entries(this.state.checked)
+        .filter(item => item[1] && item[0])
+        .map(item => item[0]);
+
       this.setState({
         authors,
-        checked: { ...this.state.checked, [e.target.value]: e.target.checked }
+        checked: {
+          ...this.state.checked,
+          [e.target.value]: e.target.checked,
+          [this.props.author]: true
+        }
       });
     } else {
-      this.setState({ authors, [e.target.name]: e.target.value });
+      this.setState({
+        [e.target.name]: e.target.value
+      });
     }
   };
 
@@ -92,7 +98,9 @@ class EditStory extends Component {
       console.log(data);
       _id !== 'new'
         ? storyApi.updateStoryById(_id, data).then(data => alert(data.respond))
-        : storyApi.createNewStory(data).then(data => alert(data.respond));
+        : // .then(this.props.closeEditStory)
+          storyApi.createNewStory(data).then(data => alert(data.respond));
+      // .then(this.props.closeEditStory);
     } else {
       alert('Uzupełnij brakujące pola!');
     }
@@ -118,7 +126,7 @@ class EditStory extends Component {
       authors
     } = this.props.editContent;
 
-    const checked = this.convertToObject(authors, true);
+    const checked = authors.length ? this.convertToObject(authors, true) : {};
 
     this.setState({
       _id,
@@ -178,6 +186,7 @@ class EditStory extends Component {
             authors_message={authors_message}
             errors={errors}
             checkChange={this.handlerOnChange}
+            authors={this.state.authors}
           />
 
           <StoryMainProperties

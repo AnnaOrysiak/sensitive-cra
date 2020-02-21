@@ -4,12 +4,16 @@ import AdminPanel from './admin/AdminPanel';
 
 class Adminpage extends Component {
   state = {
-    user: 'Admin'
+    user: ''
   };
 
   checkPermission = () => {
     return localStorage.getItem('state');
   };
+
+  componentDidMount() {
+    this.setState({ user: localStorage.getItem('user') });
+  }
 
   render() {
     return (
@@ -19,10 +23,7 @@ class Adminpage extends Component {
             this.checkPermission() ? (
               <AdminPanel user={this.state.user} />
             ) : (
-              <Redirect
-                to="/sensitive-cra/login/"
-                permission={this.checkPermission}
-              />
+              <Redirect to="/sensitive-cra/login/" />
             )
           }
         />

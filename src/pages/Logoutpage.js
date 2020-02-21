@@ -4,27 +4,31 @@ import Loader from '../components/Loader';
 import '../style/forms.css';
 
 class Logoutpage extends Component {
-
   state = {
-    redirect: false,
-  }
+    redirect: false
+  };
 
   componentDidMount() {
-    localStorage.removeItem('state', 'login');
-    setTimeout(() => this.setState({ redirect: true }), 500)
+    localStorage.removeItem('state');
+    localStorage.removeItem('user');
+    setTimeout(() => this.setState({ redirect: true }), 500);
   }
 
   render() {
     return (
       <>
-        <Route render={() => (
-          !this.state.redirect ? (
-            <div>
-              <h3>Wylogowano</h3>
-              <Loader />
-            </div>
-          ) : (<Redirect to="/sensitive-cra/" />)
-        )} />
+        <Route
+          render={() =>
+            !this.state.redirect ? (
+              <div>
+                <h3>Wylogowano</h3>
+                <Loader />
+              </div>
+            ) : (
+              <Redirect to="/sensitive-cra/" />
+            )
+          }
+        />
       </>
     );
   }

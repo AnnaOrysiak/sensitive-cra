@@ -14,7 +14,8 @@ class AdminPanel extends Component {
     usersApi.getAllUsers().then(data => {
       if (data) {
         return this.setState({
-          allAuthors: data.map(({ login }) => ({ login }))
+          allAuthors: data.map(({ login }) => ({ login })),
+          user: this.props.user
         });
       }
     });

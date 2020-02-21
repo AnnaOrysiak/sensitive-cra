@@ -48,6 +48,7 @@ class Loginpage extends Component {
               alert: false
             });
             localStorage.setItem('state', 'login');
+            localStorage.setItem('user', this.state.login);
             this.props.history.push({
               pathname: '/sensitive-cra/admin',
               user: this.state.login
