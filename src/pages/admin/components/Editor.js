@@ -7,7 +7,6 @@ import {
 } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import { Editor } from 'react-draft-wysiwyg';
-// import CustomOption from './CustomOption';
 import '../../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import '../style/editor.css';
 
@@ -56,7 +55,7 @@ class TextEditor extends Component {
           editorClassName="rdw-storybook-editor"
           onEditorStateChange={this.onEditorStateChange}
           toolbar={{
-            options: ['textAlign', 'blockType', 'inline', 'list', 'image'],
+            options: ['textAlign', 'blockType', 'inline', 'list'],
             textAlign: {
               inDropdown: false,
               options: ['left', 'center', 'right', 'justify']
@@ -76,26 +75,8 @@ class TextEditor extends Component {
             },
             list: {
               options: ['unordered', 'ordered']
-            },
-            image: {
-              // className: undefined,
-              // component: undefined,
-              // popupClassName: undefined,
-              // urlEnabled: true,
-              // uploadEnabled: false,
-              previewImage: true,
-              // alignmentEnabled: true,
-              uploadCallback: this.uploadImageCallBack
-              // inputAccept: "image/gif,image/jpeg,image/jpg,image/png,image/svg",
-              // alt: { present: true, mandatory: true }
-              // defaultSize: {
-              //   height: "auto",
-              //   width: "50%"
-              // },
-              // title: undefined
             }
           }}
-          // toolbarCustomButtons={[<CustomOption />]}
           placeholder="Pisz tutaj"
         />
 

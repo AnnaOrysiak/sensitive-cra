@@ -6,7 +6,8 @@
   padding: 2rem 0;
 }
 
-.story__content::first-letter {
+.story__content::first-letter,
+.story__content p:first-of-type::first-letter {
   font-size: 3rem;
 }
 
