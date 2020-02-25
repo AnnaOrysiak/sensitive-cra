@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import EditButton from './EditButton';
 
 const StoryElement = ({
   story,
@@ -24,9 +25,11 @@ const StoryElement = ({
       <p className="storyListItem__title small">
         {chapter_title ? `(${title})` : '(one-shot)'}
       </p>
-      <button className="listBtn" onClick={() => handleEditStory(story)}>
+      {/* <button className="listBtn" onClick={() => {handleEditStory(story);
+      scrollToTop()}}>
         <FontAwesomeIcon icon="edit" />
-      </button>
+      </button> */}
+      <EditButton id={_id} handleEditStory={() => handleEditStory(story)} />
       <button
         className="listBtn"
         value={_id}

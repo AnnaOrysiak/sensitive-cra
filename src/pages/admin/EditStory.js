@@ -62,7 +62,6 @@ class EditStory extends Component {
 
   handlerOnChange = e => {
     this.formValidate();
-    console.log(this.props.author);
     if (e.target.type === 'checkbox') {
       const authors = Object.entries(this.state.checked)
         .filter(item => item[1] && item[0])

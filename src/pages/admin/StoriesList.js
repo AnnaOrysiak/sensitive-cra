@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Loader from '../../components/Loader';
 import StoryElement from './components/StoryElement';
+import EditButton from './components/EditButton';
 import EditStory from './EditStory';
 import storyApi from '../../api/storyApi';
 
@@ -112,12 +113,16 @@ class StoriesList extends Component {
             <Loader />
           )}
           <div className="addListItem">
-            <button
+            <EditButton
+              id={this.storyModel._id}
+              handleEditStory={() => this.handleEditStory(this.storyModel)}
+            />
+            {/* <button
               className="listBtn"
               onClick={() => this.handleEditStory(this.storyModel)}
             >
               <FontAwesomeIcon icon="plus" />
-            </button>
+            </button> */}
             <p className="storyListItem__title">Nowy tytuł</p>
           </div>
         </div>
