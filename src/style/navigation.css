@@ -55,6 +55,11 @@
   text-transform: uppercase;
 }
 
+.storiesBox {
+  list-style: none;
+  margin-left: 0
+}
+
 .storyBox--long {
   margin-bottom: 1rem;
   padding-bottom: 1rem;
@@ -63,6 +68,7 @@
 .storyBox__list {
   list-style: none;
   padding: 0 1rem;
+  margin-left: 0
 }
 
 .storyBox__item {
