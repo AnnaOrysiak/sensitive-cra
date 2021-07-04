@@ -49,7 +49,6 @@ class TextEditor extends Component {
       <div className="rdw-storybook-root">
         <Editor
           editorState={editorState}
-          // defaultEditorState={editorState}
           toolbarClassName="rdw-storybook-toolbar"
           wrapperClassName="rdw-storybook-wrapper"
           editorClassName="rdw-storybook-editor"
