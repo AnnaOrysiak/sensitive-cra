@@ -6,7 +6,7 @@
 }
 
 .menu {
-  position: absolute;
+  position: fixed;
   background-color: #262626;
   min-width: 100vw;
   min-height: 100vh;
@@ -57,7 +57,9 @@
 
 .storiesBox {
   list-style: none;
-  margin-left: 0
+  height: calc(100vh - 250px);
+  margin-left: 0;
+  overflow-y: auto;
 }
 
 .storyBox--long {
